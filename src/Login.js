@@ -28,8 +28,10 @@ class Login extends React.Component {
         .post("http://localhost:8080/member/login", send_param)
         //정상 수행
         .then(returnData => {
+            console.log(returnData.data.message);
             if (returnData.data.message) {
-                cookie.save("login_id", id);
+                cookie.save("login_id", returnData.data._id);
+                cookie.save("login_nickname", returnData.data._nickname);
                 const {history} = this.props;
                 //history.push("/");
                 window.location.href = "/";

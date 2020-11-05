@@ -17,17 +17,14 @@ class App extends React.Component {
       this.setState({isCookie: cookie.load("login_id")})
       console.log(this.state.isCookie);
     }
-    console.log(cookie.load("login_id"));
   }
 
   render() {
     return (
       <div>
-        <div>
-          <Navigation />
-        </div>
         <HashRouter>
-        <Route path="/MyPage" component={MyPage}/>
+          <Navigation />
+          <Route path="/MyPage" component={MyPage}/>
           <Route path="/Login" component={Login}/>
           <Route path="/Signup" component={Signup}/>
         </HashRouter>

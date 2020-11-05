@@ -12,6 +12,8 @@ class Signup extends React.Component {
     handlePwdChange = () => {
         if(this.password.value !== this.Rpassword.value) {
             this.passwordInfo.innerText = "비밀번호를 다시 한번 확인해주세요.";
+        } else {
+            this.passwordInfo.innerText = "일치합니다.";
         }
     }
 
@@ -22,8 +24,8 @@ class Signup extends React.Component {
         const Rpassword = this.Rpassword.value;
 
         if(id === "" || id === undefined) {
-            alert("nickname을 입력해주세요.");
-            this.nickname.focus();
+            alert("ID를 입력해주세요.");
+            this.id.focus();
             return;
         } else if(nickname === "" || nickname === undefined) {
             alert("nickname을 입력해주세요.");
