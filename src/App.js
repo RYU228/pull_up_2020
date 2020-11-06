@@ -1,9 +1,9 @@
 import {HashRouter, Route} from 'react-router-dom';
-import Login from './Login';
-import Signup from './Signup';
-import MyPage from './MyPage';
-import Navigation from './Navigation';
-import UDPage from './UDPage';
+import Login from './Login/Login';
+import Signup from './Login/Signup';
+import MyPage from './Login/MyPage';
+import Navigation from './Navigation/Navigation';
+import UDPage from './Login/CheckPage';
 import cookie from 'react-cookies';
 import React from 'react';
 import './App.css';
@@ -14,10 +14,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if(cookie.load("login_id")) {
-      this.setState({isCookie: cookie.load("login_id")})
-      console.log(this.state.isCookie);
-    }
+    // if(cookie.load("login_id")) {
+    //   this.setState({isCookie: cookie.load("login_id")})
+    // }
   }
 
   render() {

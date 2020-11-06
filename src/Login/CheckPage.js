@@ -1,4 +1,7 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import cookie from 'react-cookies';
+import axios from 'axios';
 
 class UDPage extends React.Component {
     handleKeyPress = (e) => {
@@ -6,13 +9,43 @@ class UDPage extends React.Component {
             this.handleBtnClick();
         }
     }
-    handleBtnClick = () => {
+    handleBtnClick = (e) => {
+        if(this.password.value === "" || this.password.value === undefined) {
+            alert("비밀번호를 입력해주세요.");
+            this.password.focus();
+            return ;
+        }
         const {location, history} = this.props;
 
         if(location.goto === "MyPage") {
             history.push("/MyPage");
         } else if (location.goto === "Delete") {
-            history.push("/Delete");
+            //history.push("/");
+            const id = cookie.load("login_id");
+            const pwd = this.password.value;
+
+            const send_param = {
+                id,
+                pwd
+            }
+    
+            axios
+            .post("http://localhost:8080/member/delete", send_param)
+            //정상 수행
+            .then(returnData => {
+                console.log(returnData.data.message);
+                if (returnData.data.message) {
+                    cookie.remove("login_id");
+                    cookie.remove("login_nickname");
+                    window.location.href = "/";
+                } else {
+                    alert(returnData.data.message);
+                }
+            })
+            //에러
+            .catch(err => {
+                console.log(err);
+            });
         } else {
             alert("잘못된 접근입니다.");
             history.push("/");
@@ -27,7 +60,7 @@ class UDPage extends React.Component {
         if(location.goto === "MyPage") {
             this.message.innerText = "마이페이지에 들어가기 위해 비밀번호를 입력해주세요.";
             btn.addEventListener("click", this.handleBtnClick);
-        } else if(location.goto === "delete") {
+        } else if(location.goto === "Delete") {
             this.message.innerText = "정말 삭제하시겠으면 비밀번호를 입력해주세요.";
             btn.addEventListener("click", this.handleBtnClick);
         }
@@ -45,6 +78,7 @@ class UDPage extends React.Component {
                 ref={ref => (this.message = ref)}
                 ></div>
                 <input
+                ref={ref => (this.password = ref)}
                 onKeyPress={this.handleKeyPress}
                 type="password"/>
             </div>

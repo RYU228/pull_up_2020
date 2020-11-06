@@ -1,13 +1,10 @@
 import React from 'react';
 import cookie from 'react-cookies';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 axios.defaults.withCredentials = true;
 
 class MyPage extends React.Component {
-    handleDelete = () => {
-
-    }
-
     //닉네임 input에서 엔터 입력시  변경 함수 호출
     handleNickKeyPress = (e) => {
         if(e.key === "Enter") {
@@ -111,13 +108,16 @@ class MyPage extends React.Component {
         this.input_password.value = "";
         this.input_rePassword.value = "";
         this.input_nickname.value = cookie.load("login_nickname");
+        this.login_id.value = cookie.load("login_id");
+        console.log(cookie.load("login_id"));
     }
 
     render() {
         return (
             <div>
                 <div>ID</div>
-                <div>ID</div>
+                <div
+                ref={ref => (this.login_id = ref)}></div>
                 <div>Nickname</div>
                 <input
                 onKeyPress={this.handleNickKeyPress}
@@ -133,7 +133,12 @@ class MyPage extends React.Component {
                 type="password"
                 ref={ref => (this.input_rePassword = ref)} />
                 <button onClick={this.handlePwdChange}>수정</button>
-                <button onClick={this.handleDelete}>삭제</button>
+                <Link to={{
+                    pathname: "/UDPage",
+                    goto: "Delete"
+                }}>
+                    <button>삭제</button>
+                </Link>
             </div>
         )
     }
