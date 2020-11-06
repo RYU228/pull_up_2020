@@ -5,6 +5,11 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 class Login extends React.Component {
+    handleKeyPress = (e) => {
+        if(e.key === "Enter") {
+            this.login();
+        }
+    }
     login = () => {
         const id = this.id.value;
         const password = this.password.value;
@@ -54,6 +59,7 @@ class Login extends React.Component {
                 placeholder="Input ID"/>
                 <div>Password</div>
                 <input
+                onKeyPress={this.handleKeyPress}
                 ref={ref => (this.password = ref)}
                 placeholder="Input Password"
                 type="password"/>

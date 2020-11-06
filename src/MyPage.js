@@ -8,6 +8,20 @@ class MyPage extends React.Component {
 
     }
 
+    //닉네임 input에서 엔터 입력시  변경 함수 호출
+    handleNickKeyPress = (e) => {
+        if(e.key === "Enter") {
+            this.handleNickChange();
+        }
+    }
+    //비밀번호 input에서 엔터 입력시  변경 함수 호출
+    handlePwdKeyPress = (e) => {
+        if(e.key === "Enter") {
+            this.handlePwdChange();
+        }
+    }
+
+    //닉네임 변경 함수
     handleNickChange = () => {
         const nickname = this.input_nickname.value;
 
@@ -41,6 +55,7 @@ class MyPage extends React.Component {
         }
     }
 
+    //비밀번호 변경 함수
     handlePwdChange = () => {
         const password = this.input_password.value;
         const rePassword = this.input_rePassword.value;
@@ -91,6 +106,7 @@ class MyPage extends React.Component {
     //     this.changeNick.classList.add("none");
     // }
 
+    //닉네임 변경이나 마이페이지에 들어왔을때 로그인 된 닉네임 받아오기
     componentDidMount() {
         this.input_password.value = "";
         this.input_rePassword.value = "";
@@ -104,6 +120,7 @@ class MyPage extends React.Component {
                 <div>ID</div>
                 <div>Nickname</div>
                 <input
+                onKeyPress={this.handleNickKeyPress}
                 ref={ref => (this.input_nickname = ref)} />
                 <button onClick={this.handleNickChange}>수정</button>
                 {/* {this.AddNickDiv()} */}
@@ -112,6 +129,7 @@ class MyPage extends React.Component {
                 type="password"
                 ref={ref => (this.input_password = ref)} />
                 <input
+                onKeyPress={this.handlePwdKeyPress}
                 type="password"
                 ref={ref => (this.input_rePassword = ref)} />
                 <button onClick={this.handlePwdChange}>수정</button>

@@ -8,7 +8,10 @@ class Navigation extends React.Component {
             <div className="nav_container">
                 <span>Pull Up Challenge</span>
                 <ul>
-                    <Link to={{pathname:"/MyPage"}}>
+                    <Link to={{
+                        pathname:"/UDPage",
+                        goto: "MyPage"
+                        }}>
                         <li>마이페이지</li>
                     </Link>
                     <li>글쓰기</li>

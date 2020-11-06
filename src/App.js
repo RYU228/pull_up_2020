@@ -3,6 +3,7 @@ import Login from './Login';
 import Signup from './Signup';
 import MyPage from './MyPage';
 import Navigation from './Navigation';
+import UDPage from './UDPage';
 import cookie from 'react-cookies';
 import React from 'react';
 import './App.css';
@@ -24,6 +25,7 @@ class App extends React.Component {
       <div>
         <HashRouter>
           <Navigation />
+          <Route path="/UDPage" component={UDPage}/>
           <Route path="/MyPage" component={MyPage}/>
           <Route path="/Login" component={Login}/>
           <Route path="/Signup" component={Signup}/>

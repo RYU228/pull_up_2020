@@ -3,6 +3,11 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 class Signup extends React.Component {
+    handleKeyPress = (e) => {
+        if(e.key === "Enter") {
+            this.join();
+        }
+    }
     handleIdChange = () => {
         const isKorean = /[A-Za-z0-9]/;
         if(isKorean.test(this.id.value)) {
@@ -83,6 +88,7 @@ class Signup extends React.Component {
                 type="password"/>
                 <div>Repeat password</div>
                 <input
+                onKeyPress={this.handleKeyPress}
                 onChange={this.handlePwdChange}
                 ref={ref => (this.Rpassword = ref)}
                 placeholder="Repeat Password"
