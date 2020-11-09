@@ -20,7 +20,12 @@ class Navigation extends React.Component {
                         }}>
                         <li>마이페이지</li>
                     </Link>
-                    <li>글쓰기</li>
+                    <Link to={{
+                        pathname: "/BoardWrite",
+                        goto: "Write"
+                        }}>
+                        <li>글쓰기</li>
+                    </Link>
                     <li onClick={this.logout}>로그아웃</li>
                 </ul>
             </div>

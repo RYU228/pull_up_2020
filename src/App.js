@@ -4,6 +4,9 @@ import Signup from './Login/Signup';
 import MyPage from './Login/MyPage';
 import Navigation from './Navigation/Navigation';
 import UDPage from './Login/CheckPage';
+import BoardWrite from './Board/BoardWrite';
+import BoardList from './Board/BoardList';
+import BoardDetail from './Board/BoardDetail';
 import cookie from 'react-cookies';
 import React from 'react';
 import './App.css';
@@ -28,6 +31,9 @@ class App extends React.Component {
           <Route path="/MyPage" component={MyPage}/>
           <Route path="/Login" component={Login}/>
           <Route path="/Signup" component={Signup}/>
+          <Route path="/BoardWrite" component={BoardWrite}/>
+          <Route path="/Home" component={BoardList}/>
+          <Route path="/BoardDetail" component={BoardDetail}/>
         </HashRouter>
       </div>
     );

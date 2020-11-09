@@ -134,7 +134,7 @@ class MyPage extends React.Component {
                 ref={ref => (this.input_rePassword = ref)} />
                 <button onClick={this.handlePwdChange}>수정</button>
                 <Link to={{
-                    pathname: "/UDPage",
+                    pathname: "/CheckPage",
                     goto: "Delete"
                 }}>
                     <button>삭제</button>
