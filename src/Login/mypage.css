@@ -1,0 +1,128 @@
+.mypage_container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  background-color: white;
+  margin-top: 5rem;
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.mypage_idContainer {
+  margin-top: 10px;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.mypage_id {
+  font-size: 1.3rem;
+  font-weight: bold;
+  flex: 1 1 30%;
+}
+
+.mypage_loginId {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-left: 10px;
+  flex: 1 1 70%;
+  text-align: center;
+}
+
+.mypage_nickContainer {
+  width: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.mypage_nick {
+  width: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  flex: 1 1 30%;
+}
+
+.mypage_loginNick {
+  font-size: 1.3rem;
+  flex: 1 1 65%;
+  text-align: center;
+}
+
+.mypage_changeNickBtn {
+  flex: 1 1 5%;
+  font-size: 1.3rem;
+}
+
+.mypage_nickInfo {
+  font-size: 0.8rem;
+  color: forestgreen;
+  margin-bottom: 18px;
+}
+
+.mypage_pwdContainer {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.mypage_pwd {
+  font-size: 1.3rem;
+  font-weight: bold;
+  flex: 1 1 30%;
+}
+
+.mypage_inputPwd {
+  font-size: 1.3rem;
+  flex: 1 1 65%;
+}
+
+.mypage_changePwdBtn {
+  font-size: 1.3rem;
+  flex: 1 1 5%;
+}
+
+.mypage_rePwdContainer {
+  width: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.mypage_rePwd {
+  font-size: 1.3rem;
+  font-weight: bold;
+  flex: 1 1 30%;
+}
+
+.mypage_inputRePwd {
+  font-size: 1.3rem;
+  flex: 1 1 65%;
+  margin-right: 5px;
+}
+
+.mypage_rePwdArea {
+  font-size: 1.3rem;
+  flex: 1 1 5%;
+}
+
+.mypage_pwdInfo {
+  font-size: 0.8rem;
+  color: forestgreen;
+}
+
+.mypage_deleteBtn {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  font-weight: bold;
+  background-color: #484848;
+}

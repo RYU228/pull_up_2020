@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import cookie from 'react-cookies';
+import './boarditem.css';
 
 class BoardItem extends React.Component {
 
@@ -9,17 +10,21 @@ class BoardItem extends React.Component {
         if(Number(cookie.load("boardNumId")) < numId) cookie.save("boardNumId", numId);
         
         return (
-            <div>
-                {numId}
+            <div className="item_container">
+                <div className="item_numId">
+                    {numId}
+                </div>
+                <div className="item_title">
                 <Link to={{
                     pathname:"boardDetail",
                     numId: numId,
                     title: title,
                     content: content
                     }}>
-                    <div>{title}</div>
+                    {title}
                 </Link>
-                <div>{time}</div>
+                </div>
+                <div className="item_time">{time}</div>
             </div>
         )
     }

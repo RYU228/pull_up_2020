@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app_container">
         <HashRouter>
           <Navigation />
           <Route path="/UDPage" component={UDPage}/>

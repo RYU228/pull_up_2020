@@ -1,0 +1,49 @@
+.write_title {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.name_container {
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.write_name {
+  font-size: 1.2rem;
+}
+
+.write_inputName {
+  font-size: 1.2rem;
+  margin-left: 8px;
+}
+
+.write_btn {
+  width: 100%;
+  text-align: center;
+}
+
+.write_btn button {
+  font-size: 1.3rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.write_okBtn {
+  background-color: #3252f9;
+}
+
+.write_cancelBtn {
+  background-color: #484848;
+  margin-left: 20px;
+}

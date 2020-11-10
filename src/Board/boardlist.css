@@ -1,0 +1,34 @@
+.list_container {
+  width: 50%;
+  border: 1px black solid;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.list_header {
+  display: flex;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #31a5f8;
+}
+
+.list_header div {
+  padding: 8px;
+}
+
+.list_header div + div {
+  border-left: 1px solid #31a5f8;
+}
+
+.header_num {
+  flex: 1 1 10%;
+}
+
+.header_title {
+  flex: 1 1 70%;
+}
+
+.header_time {
+  flex: 1 1 20%;
+}

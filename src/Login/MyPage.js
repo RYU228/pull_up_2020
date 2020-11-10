@@ -2,6 +2,7 @@ import React from 'react';
 import cookie from 'react-cookies';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import './mypage.css';
 axios.defaults.withCredentials = true;
 
 class MyPage extends React.Component {
@@ -15,6 +16,18 @@ class MyPage extends React.Component {
     handlePwdKeyPress = (e) => {
         if(e.key === "Enter") {
             this.handlePwdChange();
+        }
+    }
+
+    handleChange = (e) => {
+        const password = this.input_password.value;
+        const rePassword = e.target.value;
+        if(password !== rePassword) {
+            this.pwdInfo.innerText = "비밀번호가 일치하지 않습니다.";
+        } else if(password === rePassword) {
+            this.pwdInfo.innerText = "비밀번호가 일치합니다.";
+        } else {
+            this.pwdInfo.innerText = "";
         }
     }
 
@@ -103,41 +116,65 @@ class MyPage extends React.Component {
     //     this.changeNick.classList.add("none");
     // }
 
-    //닉네임 변경이나 마이페이지에 들어왔을때 로그인 된 닉네임 받아오기
     componentDidMount() {
         this.input_password.value = "";
         this.input_rePassword.value = "";
         this.input_nickname.value = cookie.load("login_nickname");
-        this.login_id.value = cookie.load("login_id");
+        this.login_id.innerText = cookie.load("login_id");
         console.log(cookie.load("login_id"));
     }
 
     render() {
         return (
-            <div>
-                <div>ID</div>
-                <div
-                ref={ref => (this.login_id = ref)}></div>
-                <div>Nickname</div>
-                <input
-                onKeyPress={this.handleNickKeyPress}
-                ref={ref => (this.input_nickname = ref)} />
-                <button onClick={this.handleNickChange}>수정</button>
+            <div className="mypage_container">
+                <div className="mypage_idContainer">
+                    <span className="mypage_id">ID</span>
+                    <span
+                    className="mypage_loginId"
+                    ref={ref => (this.login_id = ref)}></span>
+                </div>
+                <div className="mypage_nickContainer">
+                    <span
+                    className="mypage_nick">Nickname</span>
+                    <input
+                    className="mypage_loginNick"
+                    onKeyPress={this.handleNickKeyPress}
+                    ref={ref => (this.input_nickname = ref)} />
+                    <button
+                    className="mypage_changeNickBtn"
+                    onClick={this.handleNickChange}>✔</button>    
+                </div>
+                <span className="mypage_nickInfo">변경할 닉네임을 입력하고 옆의 버튼이나 엔터를 눌러주세요.</span>
                 {/* {this.AddNickDiv()} */}
-                <div>Password</div>
-                <input
-                type="password"
-                ref={ref => (this.input_password = ref)} />
-                <input
-                onKeyPress={this.handlePwdKeyPress}
-                type="password"
-                ref={ref => (this.input_rePassword = ref)} />
-                <button onClick={this.handlePwdChange}>수정</button>
+                <div className="mypage_pwdContainer">
+                    <span className="mypage_pwd">Password</span>
+                    <input
+                    className="mypage_inputPwd"
+                    type="password"
+                    placeholder="Input changed password"
+                    ref={ref => (this.input_password = ref)} />
+                    <button
+                    className="mypage_changePwdBtn"
+                    onClick={this.handlePwdChange}>✔</button>
+                </div>
+                <div className="mypage_rePwdContainer">
+                    <span className="mypage_rePwd"></span>
+                    <input
+                    className="mypage_inputRePwd"
+                    onKeyPress={this.handlePwdKeyPress}
+                    onChange={this.handleChange}
+                    type="password"
+                    ref={ref => (this.input_rePassword = ref)} />
+                    <span className="mypage_rePwdArea"> </span>
+                </div>
+                <span
+                ref={ref => (this.pwdInfo = ref)}
+                className="mypage_pwdInfo"></span>
                 <Link to={{
                     pathname: "/CheckPage",
                     goto: "Delete"
                 }}>
-                    <button>삭제</button>
+                    <button className="mypage_deleteBtn">회원탈퇴</button>
                 </Link>
             </div>
         )

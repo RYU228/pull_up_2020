@@ -2,6 +2,7 @@ import React from 'react';
 import CKEditor from 'ckeditor4-react';
 import axios from 'axios';
 import cookie from 'react-cookies';
+import './boardwrite.css';
 
 class BoardWrite extends React.Component {
     state = {
@@ -63,33 +64,50 @@ class BoardWrite extends React.Component {
       const {location} = this.props;
       if(location.goto === "Write") {
         return (
-          <div>
-              <div>글 쓰기</div>
-              <input
-              ref={ref => (this.inputTitle = ref)}/>
+          <div className="write_container">
+              <span className="write_title">글 쓰기</span>
+              <div className="name_container">
+                <span className="write_name">제목</span>
+                <input
+                className="write_inputName"
+                placeholder="Input title"
+                ref={ref => (this.inputTitle = ref)}/>
+              </div>
               <CKEditor
               data={this.state.data}
               onChange={this.onEditorChange}
               ></CKEditor>
-              <button onClick={this.writeBoard}>확인</button>
-              <button>취소</button>
+              <div className="write_btn">
+                <button
+                className="write_okBtn"
+                onClick={this.writeBoard}>확인</button>
+                <button className="write_cancelBtn">취소</button>
+              </div>
           </div>
         )
       } else if(location.goto === "Update") {
         const {location} = this.props;
         return (
-          <div>
-              <div>글 수정</div>
-              <input
-              ref={ref => (this.inputTitle = ref)}
-              value={location.title}/>
+          <div className="write_container">
+              <span className="write_title">글 수정</span>
+              <div className="name_container">
+                <span className="write_name">제목</span>
+                <input
+                className="write_inputName"
+                ref={ref => (this.inputTitle = ref)}
+                value={location.title}/>
+              </div>
               <CKEditor
               ref={ref => (this.updateEditor = ref)}
               data={location.content}
               onChange={this.onEditorChange}
               ></CKEditor>
-              <button onClick={this.writeBoard}>수정</button>
-              <button>취소</button>
+              <div className="write_btn">
+                <button
+                className="write_okBtn"
+                onClick={this.writeBoard}>수정</button>
+                <button className="write_cancelBtn">취소</button>
+              </div>
           </div>
         )
       }

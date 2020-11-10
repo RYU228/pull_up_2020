@@ -1,0 +1,75 @@
+.login_container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  background-color: white;
+  margin-top: 5rem;
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.text_container {
+  margin-top: 10px;
+}
+
+.text_container span {
+  font-family: "Goldman", cursive;
+  display: block;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.text_container :nth-child(2) {
+  font-size: 2rem;
+}
+
+.id_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_id {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.login_inputId {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.login_password {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login_inputPwd {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.login_container button {
+  font-size: 1.3rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.login_loginBtn {
+  background-color: #3252f9;
+  margin-top: 10px;
+}
+
+.login_signup {
+  background-color: #04ce5c;
+}

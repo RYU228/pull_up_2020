@@ -1,0 +1,28 @@
+.item_container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #31a5f8;
+}
+
+.item_container div {
+  padding: 8px;
+}
+
+.item_container div + div {
+  border-left: 1px solid #31a5f8;
+}
+
+.item_numId {
+  flex: 1 1 10%;
+}
+
+.item_title {
+  flex: 1 1 70%;
+}
+
+.item_time {
+  flex: 1 1 20%;
+}

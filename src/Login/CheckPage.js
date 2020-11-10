@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import cookie from 'react-cookies';
 import axios from 'axios';
+import './checkpage.css';
 
 class UDPage extends React.Component {
     handleKeyPress = (e) => {
@@ -54,6 +55,7 @@ class UDPage extends React.Component {
     handleMessage = () => {
         const {location, history} = this.props;
         const btn = document.createElement("button");
+        btn.classList.add("check_btn");
         btn.innerText = "확인";
         this.container.appendChild(btn);
 
@@ -72,14 +74,17 @@ class UDPage extends React.Component {
 
     render() {
         return (
-            <div
+            <div className="check_container"
             ref={ref => (this.container = ref)}>
-                <div
+                <span
+                className="check_message"
                 ref={ref => (this.message = ref)}
-                ></div>
+                ></span>
                 <input
+                className="check_input"
                 ref={ref => (this.password = ref)}
                 onKeyPress={this.handleKeyPress}
+                placeholder="Input password"
                 type="password"/>
             </div>
         )

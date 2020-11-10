@@ -1,0 +1,33 @@
+.check_container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  background-color: white;
+  margin-top: 5rem;
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.check_message {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.check_input {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.check_btn {
+  font-size: 1.3rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  background-color: #3252f9;
+}
