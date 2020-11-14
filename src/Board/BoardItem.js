@@ -4,28 +4,32 @@ import cookie from 'react-cookies';
 import './boarditem.css';
 
 class BoardItem extends React.Component {
-
     render() {
-        const {title, numId, time, content} = this.props;
+        const {title, numId, writer, time, content} = this.props;
+        const date = time.split('T');
         if(Number(cookie.load("boardNumId")) < numId) cookie.save("boardNumId", numId);
         
         return (
-            <div className="item_container">
-                <div className="item_numId">
-                    {numId}
+            <Link style={{textDecoration: 'none', color:'black'}}
+            to={{
+            pathname:"boardDetail",
+            numId: numId,
+            writer: writer,
+            title: title,
+            content: content,
+            time: time
+            }}>
+                <div className="item_container">
+                    <div className="item_numId">
+                        {numId}
+                    </div>
+                    <div className="item_title">
+                        {title}
+                    </div>
+                    <div className="item_writer">{writer}</div>
+                    <div className="item_time">{date[0]}</div>
                 </div>
-                <div className="item_title">
-                <Link to={{
-                    pathname:"boardDetail",
-                    numId: numId,
-                    title: title,
-                    content: content
-                    }}>
-                    {title}
-                </Link>
-                </div>
-                <div className="item_time">{time}</div>
-            </div>
+            </Link>
         )
     }
 }

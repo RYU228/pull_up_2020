@@ -1,6 +1,5 @@
 .list_container {
   width: 50%;
-  border: 1px black solid;
   margin: 0 auto;
   margin-top: 5%;
 }
@@ -10,7 +9,8 @@
   text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
-  border-bottom: 1px solid #31a5f8;
+  border-bottom: 1px solid black;
+  background-color: #b1bfca;
 }
 
 .list_header div {
@@ -18,17 +18,21 @@
 }
 
 .list_header div + div {
-  border-left: 1px solid #31a5f8;
+  border-left: 1px solid black;
 }
 
 .header_num {
-  flex: 1 1 10%;
+  flex: 1 1 7%;
 }
 
 .header_title {
-  flex: 1 1 70%;
+  flex: 1 1 57%;
+}
+
+.header_writer {
+  flex: 1 1 18%;
 }
 
 .header_time {
-  flex: 1 1 20%;
+  flex: 1 1 18%;
 }

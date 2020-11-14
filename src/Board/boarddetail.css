@@ -1,0 +1,80 @@
+.detail_container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.detail_title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.detail_writerTime {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  width: 100%;
+  border-bottom: 1px #b1bfca solid;
+  padding-bottom: 8px;
+}
+
+.detail_writer {
+  border-right: 1px #b1bfca solid;
+  margin-left: 5px;
+  padding-right: 10px;
+}
+
+.detail_time {
+  margin-left: 15px;
+}
+
+.detail_content {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  border-bottom: 1px #b1bfca solid;
+  padding-bottom: 8px;
+}
+
+.dButton_container {
+  text-align: right;
+}
+
+.dButton_container button {
+  font-size: 1rem;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #b1bfca;
+}
+
+.detail_comment {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px #b1bfca solid;
+  padding-bottom: 10px;
+}
+
+.detail_comWriter {
+  flex: 1 1 10%;
+  margin-left: 5px;
+  margin-right: 9px;
+}
+
+.detail_comTextarea {
+  flex: 1 1 80%;
+}
+
+.detail_comBtn {
+  flex: 1 1 10%;
+  margin-left: 12px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: none;
+  border: 1px #b1bfca solid;
+  padding: 5px 0px;
+}

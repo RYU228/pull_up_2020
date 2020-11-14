@@ -14,35 +14,59 @@ class Navigation extends React.Component {
             window.location.href = "#/login";
         }
     }
+    toHome = () => {
+        window.location.href = "#/";
+    }
 
     componentDidMount() {
         if(cookie.load("login_id") !== undefined) {
             this.logoutLi.innerText = "로그아웃"
+            
         } else {
             this.logoutLi.innerText = "로그인"
         }
-        
     }
 
     render() {
+        let writeLi, myPageLi = null;
+        if(cookie.load("login_id") !== undefined) {
+            writeLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            to={{
+                    pathname: "/BoardWrite",
+                    goto: "Write"
+                    }}>
+                    <li className="nav_write">글쓰기</li>
+                </Link>;
+
+            myPageLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            to={{
+                pathname:"/UDPage",
+                goto: "MyPage"
+                }}>
+                <li className="nav_myPage">마이페이지</li>
+            </Link>;
+        } else {
+            writeLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            to={{
+                    pathname: "/login"
+                    }}>
+                    <li className="nav_write">글쓰기</li>
+                </Link>;
+
+            myPageLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            to={{
+                pathname:"/login"
+                }}>
+                <li className="nav_myPage">마이페이지</li>
+            </Link>;
+        }
+        
         return (
             <div className="nav_container">
-                <span>Pull Up Challenge</span>
+                <span onClick={this.toHome}>Pull Up Challenge</span>
                 <ul>
-                <Link style={{textDecoration: 'none', color:'#31a5f8'}}
-                to={{
-                        pathname: "/BoardWrite",
-                        goto: "Write"
-                        }}>
-                        <li className="nav_write">글쓰기</li>
-                    </Link>
-                    <Link style={{textDecoration: 'none', color:'#31a5f8'}}
-                    to={{
-                        pathname:"/UDPage",
-                        goto: "MyPage"
-                        }}>
-                        <li className="nav_myPage">마이페이지</li>
-                    </Link>
+                    {writeLi}
+                    {myPageLi}
                     <li
                     ref={ref=>(this.logoutLi = ref)}
                     className="nav_logout" onClick={this.handleClick}>로그인</li>

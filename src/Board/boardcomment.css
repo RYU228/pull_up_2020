@@ -1,0 +1,24 @@
+.comment_container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px #b1bfca solid;
+  line-height: 2rem;
+}
+
+.comment_writer {
+  flex: 1 1 10%;
+  margin-left: 5px;
+  padding-right: 10px;
+  border-right: 1px #b1bfca solid;
+}
+
+.comment_comment {
+  flex: 1 1 80%;
+  margin-left: 15px;
+  border-right: 1px #b1bfca solid;
+}
+
+.comment_time {
+  flex: 1 1 10%;
+  margin-left: 15px;
+}

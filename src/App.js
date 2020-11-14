@@ -7,6 +7,7 @@ import UDPage from './Login/CheckPage';
 import BoardWrite from './Board/BoardWrite';
 import BoardList from './Board/BoardList';
 import BoardDetail from './Board/BoardDetail';
+import Sidebar from './Sidebar/Sidebar';
 import cookie from 'react-cookies';
 import React from 'react';
 import './App.css';
@@ -27,12 +28,17 @@ class App extends React.Component {
       <div className="app_container">
         <HashRouter>
           <Navigation />
+          <Sidebar />
+          {/* <Route exact path="/my_info" render={()=>(
+isLoggedIn?
+(<MyInformation/>):
+(<Redirect to="/login"/>)} */}
           <Route path="/UDPage" component={UDPage}/>
           <Route path="/MyPage" component={MyPage}/>
           <Route path="/Login" component={Login}/>
           <Route path="/Signup" component={Signup}/>
           <Route path="/BoardWrite" component={BoardWrite}/>
-          <Route path="/Home" component={BoardList}/>
+          <Route exact path="/" component={BoardList}/>
           <Route path="/BoardDetail" component={BoardDetail}/>
         </HashRouter>
       </div>

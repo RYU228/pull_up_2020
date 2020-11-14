@@ -46,12 +46,14 @@ class BoardList extends React.Component {
                     <div className="list_header">
                         <div className="header_num">번호</div>
                         <div className="header_title">제 목</div>
+                        <div className="header_writer">작성자</div>
                         <div className="header_time">시간</div>
                     </div>
                     {boardList.map(item =>
                     <BoardItem
                     key={item.numId}
                     numId={item.numId}
+                    writer={item.writer}
                     title={item.title}
                     time={item.time}
                     content={item.content}/>

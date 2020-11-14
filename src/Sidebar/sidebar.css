@@ -1,0 +1,78 @@
+.sidebar_container {
+  background-color: #31a5f8;
+  color: white;
+  width: 20%;
+  height: 92.5%;
+  position: absolute;
+  right: 0px;
+}
+
+.sidebar_nick {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.sidebar_plan {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.plan_title {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.plan_add {
+  margin-right: 10px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.plan_container {
+}
+
+.plan_div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.content_container {
+  display: flex;
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.content_span {
+  width: 30%;
+}
+
+.content_input {
+  width: 70%;
+}
+
+.count_container {
+  display: flex;
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.count_span {
+  width: 50%;
+}
+
+.count_input {
+  width: 35%;
+}
+
+.count_btn {
+  width: 15%;
+}

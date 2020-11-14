@@ -1,0 +1,24 @@
+.planData_container {
+}
+
+.planData_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.planData_title {
+  width: 60%;
+}
+
+.planData_counts {
+  width: 60%;
+  display: flex;
+}
+
+.planData_inputCount {
+  width: 30%;
+}
+
+.planData_count {
+  width: 40%;
+}

@@ -4,7 +4,8 @@
   align-items: center;
   font-size: 1.1rem;
   font-weight: bold;
-  border-bottom: 1px solid #31a5f8;
+  border-bottom: 1px solid white;
+  background-color: #e3f2fd;
 }
 
 .item_container div {
@@ -12,17 +13,21 @@
 }
 
 .item_container div + div {
-  border-left: 1px solid #31a5f8;
+  border-left: 1px solid white;
 }
 
 .item_numId {
-  flex: 1 1 10%;
+  flex: 1 1 7%;
 }
 
 .item_title {
-  flex: 1 1 70%;
+  flex: 1 1 57%;
+}
+
+.item_writer {
+  flex: 1 1 18%;
 }
 
 .item_time {
-  flex: 1 1 20%;
+  flex: 1 1 18%;
 }
