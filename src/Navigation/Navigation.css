@@ -18,7 +18,7 @@
 
 .nav_container span {
   display: block;
-  font-size: 1.7rem;
+  font-size: 27px;
   font-weight: bold;
   color: #061541;
   cursor: pointer;
@@ -27,16 +27,54 @@
 
 .nav_container ul {
   display: flex;
+  margin-right: 10px;
 }
 
 .nav_container li {
   list-style: none;
   margin-left: 20px;
-  font-size: 1.3rem;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .nav_container li:hover {
   color: #061541;
   font-weight: bold;
+}
+
+.nav_side {
+  display: none;
+  margin-top: 3px;
+}
+
+@media (max-width: 1100px) {
+  .nav_side {
+    display: block;
+  }
+}
+
+.showing {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav_container span {
+    font-size: 20px;
+    width: 30%;
+  }
+
+  .nav_container li {
+    font-size: 14px;
+    margin-left: 6px;
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: translate(100%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }

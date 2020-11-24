@@ -5,17 +5,24 @@ import './boarditem.css';
 
 class BoardItem extends React.Component {
     render() {
-        const {title, numId, writer, time, content} = this.props;
+        const {title, numId, writer, time, views, content} = this.props;
         const date = time.split('T');
         if(Number(cookie.load("boardNumId")) < numId) cookie.save("boardNumId", numId);
-        
+
+        let path = "";
+        if(cookie.load("login_id") === undefined || cookie.load("login_id") === "") {
+            path = "/login";
+        } else {
+            path = "/boardDetail";
+        }
         return (
             <Link style={{textDecoration: 'none', color:'black'}}
             to={{
-            pathname:"boardDetail",
+            pathname: path,
             numId: numId,
             writer: writer,
             title: title,
+            views: views,
             content: content,
             time: time
             }}>

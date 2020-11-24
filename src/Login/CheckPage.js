@@ -22,6 +22,7 @@ class UDPage extends React.Component {
             history.push("/MyPage");
         } else if (location.goto === "Delete") {
             //history.push("/");
+            console.log("adasd");
             const id = cookie.load("login_id");
             const pwd = this.password.value;
 
@@ -33,14 +34,15 @@ class UDPage extends React.Component {
             axios
             .post("http://localhost:8080/member/delete", send_param)
             //정상 수행
-            .then(returnData => {
-                console.log(returnData.data.message);
-                if (returnData.data.message) {
+            .then(res => {
+                if (res.data.check) {
+                    console.log("삭제");
                     cookie.remove("login_id");
                     cookie.remove("login_nickname");
                     window.location.href = "/";
                 } else {
-                    alert(returnData.data.message);
+                    console.log("삭ㄴ제");
+                    alert(res.data.message);
                 }
             })
             //에러

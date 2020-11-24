@@ -1,16 +1,17 @@
 .detail_container {
-  width: 80%;
-  margin: 20px auto;
+  width: 70%;
+  margin: 0px 5%;
+  background-color: #e1e2e1;
 }
 
 .detail_title {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .detail_writerTime {
   margin-top: 5px;
-  font-size: 1.1rem;
+  font-size: 16px;
   width: 100%;
   border-bottom: 1px #b1bfca solid;
   padding-bottom: 8px;
@@ -26,9 +27,13 @@
   margin-left: 15px;
 }
 
+.detail_views {
+  margin-left: 15px;
+}
+
 .detail_content {
   margin-top: 15px;
-  font-size: 1.3rem;
+  font-size: 20px;
   border-bottom: 1px #b1bfca solid;
   padding-bottom: 8px;
 }
@@ -38,7 +43,7 @@
 }
 
 .dButton_container button {
-  font-size: 1rem;
+  font-size: 16px;
   color: black;
   border: none;
   border-radius: 10px;
@@ -77,4 +82,37 @@
   border: none;
   border: 1px #b1bfca solid;
   padding: 5px 0px;
+}
+
+@media (max-width: 1100px) {
+  .detail_container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail_title {
+    font-size: 20px;
+  }
+
+  .detail_writerTime {
+    font-size: 12px;
+  }
+
+  .detail_content {
+    font-size: 16px;
+  }
+
+  .dButton_container button {
+    font-size: 12px;
+  }
+
+  .detail_comTextarea {
+    flex: 1 1 75%;
+  }
+
+  .detail_comBtn {
+    margin-left: 12px;
+    flex: 1 1 15%;
+  }
 }

@@ -1,3 +1,8 @@
+.write_container {
+  width: 70%;
+  margin: 0px 5%;
+}
+
 .write_title {
   display: block;
   font-size: 1.4rem;
@@ -46,4 +51,11 @@
 .write_cancelBtn {
   background-color: #484848;
   margin-left: 20px;
+}
+
+@media (max-width: 1100px) {
+  .write_container {
+    width: 90%;
+    margin: 0px 5%;
+  }
 }

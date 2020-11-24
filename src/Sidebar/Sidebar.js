@@ -1,6 +1,8 @@
 import react, {Component} from 'react';
 import cookie from 'react-cookies';
 import axios from 'axios';
+// import Calendar from 'react-calendar';
+// import './../../node_modules/react-calendar/dist/Calendar.css';
 import Plan from './Plan';
 import './sidebar.css';
 
@@ -9,6 +11,18 @@ class Sidebar extends Component {
         data: []
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        //문제있음.
+        // if(prevState.data === undefined && this.state.data !== undefined) {
+        //     this.loadPlan();
+        // } else if(prevState.data.length !== this.state.data.length) {
+        //     this.loadPlan();
+        // }
+
+        if(prevState.data.length !== this.state.data.length) {
+            this.loadPlan();
+        }
+    }
     componentDidMount() {
         this.loadPlan();
     }
@@ -31,6 +45,43 @@ class Sidebar extends Component {
       .catch(err => {console.log(err);});
     }
 
+    changeAllPlan = () => {
+        const plans = document.getElementsByClassName("planData_title");
+        const plans_curCount = document.getElementsByClassName("planData_inputCount");
+        const plans_count = document.getElementsByClassName("planData_count");
+
+        let list_content = [], list_curCount = [], list_count = [];
+        for(let i = 0; i < plans.length; i++) {
+            list_content.push(plans[i].innerText);
+            if(plans_curCount[i].value === undefined || plans_curCount[i].value === "") {
+                list_curCount.push(0);
+            } else {
+                list_curCount.push(Number(plans_curCount[i].value));
+            }
+            list_count.push(Number(this.state.data[i].count));
+            console.log(Number(this.state.data[i].count));
+        }
+        
+        const send_param = {
+            id: cookie.load("login_id"),
+            content: list_content,
+            curCount: list_curCount,
+            count: list_count
+        }
+        
+        axios
+      .post("http://localhost:8080/plan/update", send_param)
+      //정상 수행
+      .then(res => {
+          if(res.data.check) {
+            // this.setState({data: this.state.data.push(send_param)});
+          } else {
+              alert(res.data.message);
+          }
+        })
+      //에러
+      .catch(err => {console.log(err);});
+    }
     savePlan = () => {
         const id = cookie.load("login_id");
 
@@ -112,28 +163,42 @@ class Sidebar extends Component {
     }
 
     render() {
+        // const start = this.loadPlan;
+        // start();
         let data = [];
         let mapPlan;
         if(this.state.data.length > 0) {
             data = this.state.data;
-            mapPlan = data.map(item => <Plan key={item.content} content={item.content} count={item.count} />);
+            mapPlan = data.map(item => <Plan key={item.content} content={item.content} count={item.count} curCount={item.curCount} loadPlan={this.loadPlan} changeAllPlan={this.changeAllPlan} />);
         }
         
-        return (
-            <div className="sidebar_container">
-                <div className="sidebar_nick">닉네임</div>
-                <div className="sidebar_plan">
-                    <div className="plan_title">목표
+        if(cookie.load("login_id") === undefined || cookie.load("login_id") === "") {
+            return (
+                <div className="sidebar_container">
+                    <span className="sidebar_nLogin">로그인 후 이용 해주세요.</span>
+                </div>
+            )
+        } else {
+            const nick = cookie.load("login_nickname");
+            return (
+                <div className="sidebar_container">
+                    <div className="sidebar_nick">{nick}</div>
+                    {/* <Calendar /> */}
+                    <div className="sidebar_plan">
+                        <div className="plan_title">목표
+                        </div>
+                        <button onClick={this.addPlan} className="plan_add">➕</button>
                     </div>
-                    <button onClick={this.addPlan} className="plan_add">➕</button>
+                    <div
+                    ref={ref=>(this.plan = ref)}
+                    className="plan_container">
+                        {mapPlan}
+                        <div className="plan_changeMsg">변경 후 아래 버튼을 눌러주세요.</div>
+                    <button onClick={this.changeAllPlan} className="plan_changeBtn">✔</button>
+                    </div>
                 </div>
-                <div
-                ref={ref=>(this.plan = ref)}
-                className="plan_container">
-                    {mapPlan}
-                </div>
-            </div>
-        )
+            )
+        }
     }
 }
 

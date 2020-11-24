@@ -2,14 +2,14 @@
   display: flex;
   text-align: center;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: bold;
   border-bottom: 1px solid white;
   background-color: #e3f2fd;
 }
 
 .item_container div {
-  padding: 8px;
+  padding: 8px 0;
 }
 
 .item_container div + div {
@@ -17,11 +17,11 @@
 }
 
 .item_numId {
-  flex: 1 1 7%;
+  flex: 1 1 13%;
 }
 
 .item_title {
-  flex: 1 1 57%;
+  flex: 1 1 51%;
 }
 
 .item_writer {
@@ -30,4 +30,10 @@
 
 .item_time {
   flex: 1 1 18%;
+}
+
+@media (max-width: 768px) {
+  .item_container {
+    font-size: 14px;
+  }
 }

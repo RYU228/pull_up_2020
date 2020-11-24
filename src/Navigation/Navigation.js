@@ -2,6 +2,8 @@ import React from 'react';
 import './Navigation.css';
 import cookie from 'react-cookies';
 import {Link} from 'react-router-dom';
+import '../FontAwesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Navigation extends React.Component {
     handleClick = () => {
@@ -16,6 +18,19 @@ class Navigation extends React.Component {
     }
     toHome = () => {
         window.location.href = "#/";
+    }
+    showSideBar = () => {
+        const sideBar = document.querySelector(".sidebar_container");
+        const sideBarLi = document.querySelector(".nav_side");
+        
+        if(sideBar.style.display === "none" || sideBar.style.display === "") {
+            sideBarLi.style.color = "black";
+            sideBar.style.display = "block";
+            sideBar.style.animation = "show 0.5s";
+        } else {
+            sideBarLi.style.color = "#31a5f8";
+            sideBar.style.display = "none";
+        }
     }
 
     componentDidMount() {
@@ -40,7 +55,7 @@ class Navigation extends React.Component {
 
             myPageLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
             to={{
-                pathname:"/UDPage",
+                pathname:"/CheckPage",
                 goto: "MyPage"
                 }}>
                 <li className="nav_myPage">마이페이지</li>
@@ -70,6 +85,11 @@ class Navigation extends React.Component {
                     <li
                     ref={ref=>(this.logoutLi = ref)}
                     className="nav_logout" onClick={this.handleClick}>로그인</li>
+                    <li
+                    className="nav_side"
+                    onClick={this.showSideBar}>
+                        <FontAwesomeIcon icon="bars" />
+                        </li>
                 </ul>
             </div>
         )

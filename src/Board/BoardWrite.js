@@ -18,7 +18,7 @@ class BoardWrite extends React.Component {
     
         if (title === undefined || title === "") {
           alert("글 제목을 입력 해주세요.");
-          title.focus();
+          this.inputTitle.focus();
           return;
         } else if (content === undefined || content === "") {
           alert("글 내용을 입력 해주세요.");
@@ -26,14 +26,17 @@ class BoardWrite extends React.Component {
         }
         
         const {location} = this.props;
+        let numId;
         if(location.goto === "Update") {
           url = "http://localhost:8080/board/update";
+          numId = location.numId;
         } else if(location.goto === "Write") {
           url = "http://localhost:8080/board/write";
+          numId = Number(cookie.load("boardNumId"))+1;
         }
         
         send_param = {
-            numId: Number(cookie.load("boardNumId"))+1,
+            numId: numId,
             writer: cookie.load("login_id"),
             title: title,
             content: content
@@ -76,6 +79,10 @@ class BoardWrite extends React.Component {
               <CKEditor
               data={this.state.data}
               onChange={this.onEditorChange}
+              config={{
+                filebrowserBrowseUrl: "./browser/browse.php",
+                filebrowserUploadUrl: "./uploader/upload.php?type=Files"
+              }}
               ></CKEditor>
               <div className="write_btn">
                 <button

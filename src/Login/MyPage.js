@@ -121,7 +121,6 @@ class MyPage extends React.Component {
         this.input_rePassword.value = "";
         this.input_nickname.value = cookie.load("login_nickname");
         this.login_id.innerText = cookie.load("login_id");
-        console.log(cookie.load("login_id"));
     }
 
     render() {
