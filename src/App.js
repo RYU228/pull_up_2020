@@ -25,7 +25,6 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app_container">
         <HashRouter>
           <Navigation />
           <div className="app_main">
@@ -44,7 +43,6 @@ isLoggedIn?
           <Route path="/BoardWrite" component={BoardWrite}/>
           <Route path="/BoardDetail" component={BoardDetail}/>
         </HashRouter>
-      </div>
     );
   }
 }

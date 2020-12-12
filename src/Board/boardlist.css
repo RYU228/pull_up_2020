@@ -28,7 +28,7 @@
   font-size: 16px;
   font-weight: bold;
   border-bottom: 1px solid black;
-  background-color: #5472d3;
+  background-color: #1e5f74;
   color: white;
 }
 
@@ -73,7 +73,7 @@
 
 .list_pageBtn {
   background: none;
-  color: #31a5f8;
+  color: #1e5f74;
   outline: none;
   border: none;
   font-size: 16px;
@@ -82,7 +82,7 @@
 }
 
 .list_pageBtn:hover {
-  color: black;
+  color: #1d2d50;
   font-weight: bold;
   font-size: 17px;
 }

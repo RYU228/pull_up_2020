@@ -28,7 +28,7 @@ class Navigation extends React.Component {
             sideBar.style.display = "block";
             sideBar.style.animation = "show 0.5s";
         } else {
-            sideBarLi.style.color = "#31a5f8";
+            sideBarLi.style.color = "#1e5f74";
             sideBar.style.display = "none";
         }
     }
@@ -45,7 +45,7 @@ class Navigation extends React.Component {
     render() {
         let writeLi, myPageLi = null;
         if(cookie.load("login_id") !== undefined) {
-            writeLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            writeLi = <Link style={{textDecoration: 'none', color:'#1e5f74'}}
             to={{
                     pathname: "/BoardWrite",
                     goto: "Write"
@@ -53,7 +53,7 @@ class Navigation extends React.Component {
                     <li className="nav_write">글쓰기</li>
                 </Link>;
 
-            myPageLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            myPageLi = <Link style={{textDecoration: 'none', color:'#1e5f74'}}
             to={{
                 pathname:"/CheckPage",
                 goto: "MyPage"
@@ -61,14 +61,14 @@ class Navigation extends React.Component {
                 <li className="nav_myPage">마이페이지</li>
             </Link>;
         } else {
-            writeLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            writeLi = <Link style={{textDecoration: 'none', color:'#1e5f74'}}
             to={{
                     pathname: "/login"
                     }}>
                     <li className="nav_write">글쓰기</li>
                 </Link>;
 
-            myPageLi = <Link style={{textDecoration: 'none', color:'#31a5f8'}}
+            myPageLi = <Link style={{textDecoration: 'none', color:'#1e5f74'}}
             to={{
                 pathname:"/login"
                 }}>
